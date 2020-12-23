@@ -1,0 +1,12 @@
+[submodule "plugged\\gruvbox"]
+	path = plugged\\gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule "plugged\\vim-fugitive"]
+	path = plugged\\vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "plugged\\vim-colors-solarized"]
+	path = plugged\\vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "plugged\\nerdtree"]
+	path = plugged\\nerdtree
+	url = https://github.com/preservim/nerdtree
