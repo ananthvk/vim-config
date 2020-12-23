@@ -205,6 +205,7 @@ augroup END
     " Store 10000 lines
     set directory=~/.vim/cache
     " Store all the swapfiles
+    set backup
     set backupdir=~/.vim/backup
     " Store the backups.
     set updatetime=350
@@ -235,5 +236,5 @@ iabbrev tehn then
 "    autocmd VimEnter * :GuiTabline 0
 "augroup END
 " }}}
-" =====================================================================
+"=====================================================================
 "echom ">^.^<"
