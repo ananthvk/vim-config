@@ -110,7 +110,8 @@ augroup END
 " }}}
 " Colors and colorscheme {{{
     " Set the colorscheme and background
-    colorscheme Monokai
+    colorscheme gruvbox
+    "colorscheme solarized8_dark
     set background=dark
     " Choose the dark theme
     syntax enable
@@ -119,8 +120,8 @@ augroup END
     " Enable line wrapping
     set linebreak
     " Don't wrap middle of a word
-    "set termguicolors
-    " set terminal colors
+    set termguicolors
+    "set terminal colors
     set guifont=IBM\ Plex\ Mono:h12:cANSI:qDRAFT
 " }}}
 " Spaces and tabs {{{
