@@ -11,7 +11,7 @@ Follow the given instructions and run :PlugInstall on opening vim.\
 Preffered Font IBM Plex Mono.\
 Get it from here [IBM Plex Mono](https://github.com/IBM/plex)\
 Install powerline fonts for the status bar from [here](https://github.com/powerline/fonts)\
-
+If you want to have nvim-qt in full screen mode add the ginit.vim to the appropriate folder.
 # Windows
 ### For nvim users
 Place the below lines in %APPDATA%\Local\nvim\init.vim
