@@ -2,7 +2,7 @@
 For help see [HELP.md](./HELP.md)\
 This repository's url [https://github.com/ShankarCodes/vim-config](https://github.com/ShankarCodes/vim-config)
 # Screenshots
-[](./screenshot/1.png)
+![Sample](./screenshot/1.png)
 # Installation
 Download the .vimrc from this repository.\
 Install [vim plug](https://github.com/junegunn/vim-plug)
