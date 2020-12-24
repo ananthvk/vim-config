@@ -12,6 +12,7 @@
 " Enable folding of lines in vim scripts so that it is easier to read. Use za
 " to unfold and fold.
 " =====================================================================
+" Use :copen and :cnext to move to errors in :make
 " Vim file settings {{{
 augroup filetype_vim
     " For .vim (vim files) use marker foldmethod, the three curly braces.
@@ -43,6 +44,7 @@ augroup END
         " Press space twice in normal mode to remove search highlights.
         
         nnoremap <leader>w :w!<cr>
+        nnoremap <leader>q :q<cr>
         " Press leader + w to quickly save and.
         " nnoremap - ddp
 
