@@ -79,6 +79,9 @@ augroup END
     inoremap <c-d> <Esc>ddi
     " useful to press ctrl + d to delete the current line in insert mode.
     " }}}
+    " Terminal mode {{{
+    tnoremap jk <C-\><C-n>
+    " }}}
     set mouse=a
     set clipboard+=unnamedplus
     " Allows to copy to the system clipboard
