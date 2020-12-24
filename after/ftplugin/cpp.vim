@@ -10,11 +10,11 @@
 if has('win32')
     " If windows is found, then add the .exe extension
     setlocal makeprg=g++\ -Wall\ -Wextra\ %\ -o\ %<.exe
-    nnoremap <buffer> <leader>e :term %<.exe<CR>
+    nnoremap <buffer> <leader>se :term %<.exe<CR>
 else
     " Else do not add any extension
     setlocal makeprg=g++\ -Wall\ -Wextra\ %\ -o\ %
-    nnoremap <buffer> <leader>e :term %<<CR>
+    nnoremap <buffer> <leader>se :term %<<CR>
 endif
 
-nnoremap <buffer> <leader>c :make
+nnoremap <buffer> <leader>sc :make

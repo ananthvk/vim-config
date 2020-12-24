@@ -75,7 +75,7 @@ augroup END
     " Insert mode remappings {{{
     inoremap jk <Esc>
     " Remap jk to Esc key so that it is easier to read
-
+    inoremap <c-e> <c-o>A
     inoremap <c-d> <Esc>ddi
     " useful to press ctrl + d to delete the current line in insert mode.
     " }}}
@@ -102,13 +102,15 @@ augroup END
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
     
     Plug 'tpope/vim-surround'
+    Plug 'preservim/nerdcommenter'
+    Plug 'flazz/vim-colorschemes'
     call plug#end()
     
 
 " }}}
 " Colors and colorscheme {{{
     " Set the colorscheme and background
-    colorscheme gruvbox
+    colorscheme Monokai
     set background=dark
     " Choose the dark theme
     syntax enable
@@ -117,7 +119,7 @@ augroup END
     " Enable line wrapping
     set linebreak
     " Don't wrap middle of a word
-    set termguicolors
+    "set termguicolors
     " set terminal colors
     set guifont=IBM\ Plex\ Mono:h12:cANSI:qDRAFT
 " }}}
