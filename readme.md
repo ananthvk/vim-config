@@ -7,8 +7,9 @@ Download the .vimrc from this repository.\
 Install [vim plug](https://github.com/junegunn/vim-plug)
 Place the .vimrc in your .vim folder.\
 Follow the given instructions and run :PlugInstall on opening vim.\
-Preffered Font IBM Plex Mono.
-Get it from here [IBM Plex Mono](https://github.com/IBM/plex)
+Preffered Font IBM Plex Mono.\
+Get it from here [IBM Plex Mono](https://github.com/IBM/plex)\
+Install powerline fonts for the status bar from [here](https://github.com/powerline/fonts)\
 ## Windows
 ### For nvim users
 Place the below lines in %APPDATA%\Local\nvim\init.vim

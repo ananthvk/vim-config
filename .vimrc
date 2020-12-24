@@ -100,7 +100,7 @@ augroup END
     Plug 'vim-airline/vim-airline'
     " Vim plugin for markdown preview.
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-    
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-surround'
     Plug 'preservim/nerdcommenter'
     Plug 'flazz/vim-colorschemes'
@@ -122,8 +122,12 @@ augroup END
     " Don't wrap middle of a word
     set termguicolors
     "set terminal colors
-    set guifont=IBM\ Plex\ Mono:h12:cANSI:qDRAFT
-" }}}
+    let g:airline_powerline_fonts = 1
+    set t_Co=256
+    "set guifont=IBM\ Plex\ Mono:h12:cANSI:qDRAFT
+    "set guifont=Roboto\ Mono:h12:cANSI:qDRAFT
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12:cANSI:qDRAFT,IBM\ Plex\ Mono:h12:cANSI:qDRAFT,Roboto\ Mono:h12:cANSI:qDRAFT
+ "}}}
 " Spaces and tabs {{{
     set tabstop=4
     " number of visual spaces per a tab
