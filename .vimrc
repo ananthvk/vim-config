@@ -98,6 +98,10 @@ augroup END
     Plug 'preservim/nerdtree'
     " Vim plugin for viewing files
     Plug 'vim-airline/vim-airline'
+    " Vim plugin for markdown preview.
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+    
+    Plug 'tpope/vim-surround'
     call plug#end()
     
 
