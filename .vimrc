@@ -1,4 +1,3 @@
-
 " Shankar VIM file 2020
 " 2020-12-20
 " General tips
