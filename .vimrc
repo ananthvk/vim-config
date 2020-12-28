@@ -69,10 +69,13 @@ augroup END
         nnoremap <leader>gc :Git commit -m "Changes"<CR>
         nnoremap <leader>gp :Git push -u origin main<CR>
         " Fold code remappings.
-        nnoremap <leader>n za
-        
-    nnoremap <leader>f <c-]>
-    nnoremap <leader>b <c-o>
+        nnoremap <leader>o za
+        " use leader + f and b to go front and back of link in vim helps. 
+        nnoremap <leader>f <c-]>
+        nnoremap <leader>b <c-o>
+
+        nnoremap <leader>n :bn<CR>
+        nnoremap <leader>p :bp<CR>
    " }}}
     " Insert mode remappings {{{
     inoremap jk <Esc>
@@ -251,6 +254,7 @@ iabbrev tehn then
 "    autocmd VimEnter * :GuiFont! IBM\ Plex\ Mono:h12:cANSI:qDRAFT
 "    autocmd VimEnter * :GuiTabline 0
 "augroup END
+ 
 " }}}
 "=====================================================================
 "echom ">^.^<"

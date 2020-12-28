@@ -1,6 +1,6 @@
 " Shankar VIM config 2020
 " 2020-12-21
-" This is mostly for single line cpp files for learning.
+" is is mostly for single line cpp files for learning.
 " Use leader key + c to compile.
 " Use leader key + e to execute.
 " This is the file specific to cpp language.
@@ -17,4 +17,5 @@ else
     nnoremap <buffer> <leader>se :term %<<CR>
 endif
 
-nnoremap <buffer> <leader>sc :make
+nnoremap <buffer> <leader>sc :w <bar> make <bar> copen <bar> cw<CR><CR>
+nnoremap <buffer> <leader>sr :edit # <bar> copen <bar> cw<CR>
