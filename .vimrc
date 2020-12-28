@@ -76,6 +76,9 @@ augroup END
 
         nnoremap <leader>n :bn<CR>
         nnoremap <leader>p :bp<CR>
+
+        nnoremap <leader>u <c-U>
+        nnoremap <leader>d <c-D>
    " }}}
     " Insert mode remappings {{{
     inoremap jk <Esc>
@@ -241,6 +244,14 @@ augroup END
     " Set the encoding to unicode
     set ffs=unix,dos,mac
     " Set unix as default file type
+    set wildignore+=*jpg,*.png,*.bmp,*.gif,*.mp4,*.mkv,*.avi,*.mov,*.mp3,*.ogg
+    set wildignore+=*.pdf,*.docx,*.doc,*.xls,*.xlsx,*.ppt,*.pptx
+    set wildignore+=*.zip,*.rar,*.7z,*.tar,*.tar.gz,*.tar.xz,*.iso
+    set wildignore+=*.db,*.sqlite3,*.sqlite
+    set wildignore+=*.exe,*.EXE,*.dll,*.DLL,*.so,*.class,*.o,*.a,*.sys,*.SYS,*.bak,*.lib,*.LIB
+    set wildignore+=*.msc,*.MSC,*.NLS,*.nls,*.bin,*.BIN,*.dat,*.DAT,*.acm,*.ocx,*.Exe,*.cpl,*.ax
+    set wildignore+=*.pyc,*.pyo
+    set wildignore+=*.xnb
 " }}}
 " Abbreviations {{{
 iabbrev adn and
