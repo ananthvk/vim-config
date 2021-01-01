@@ -242,7 +242,7 @@ augroup END
     set encoding=utf-8
     " Set the encoding to unicode
     set ffs=unix,dos,mac
-    " Set unix as default file type
+    "Set unix as default file type
     set wildignore+=*jpg,*.png,*.bmp,*.gif,*.mp4,*.mkv,*.avi,*.mov,*.mp3,*.ogg
     set wildignore+=*.pdf,*.docx,*.doc,*.xls,*.xlsx,*.ppt,*.pptx
     set wildignore+=*.zip,*.rar,*.7z,*.tar,*.tar.gz,*.tar.xz,*.iso
