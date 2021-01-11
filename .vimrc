@@ -2,7 +2,7 @@
 " 2020-12-20
 " General tips
 " The default location of this file is .vim/.vimrc
-
+" Last modified - 2021-01-11 16:43:09 
 " -------------------------------------------------------------------
 " Use leader + ev to open this vim config and then source it by leader + sv
 " Edit this file with folding to easily go between sections.
