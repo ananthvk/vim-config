@@ -4,14 +4,17 @@
 " The default location of this file is .vim/.vimrc
 " Last modified - 2021-01-11 16:43:09 
 " -------------------------------------------------------------------
+" ===================================================================
 " Use leader + ev to open this vim config and then source it by leader + sv
 " Edit this file with folding to easily go between sections.
 " Remap Esc key in insert mode to jk for easier going back to insert mode
 " Use 1> for indentation
 " Enable folding of lines in vim scripts so that it is easier to read. Use za
 " to unfold and fold.
-" =====================================================================
+" ====================================================================
+" ====================================================================
 " Use :copen and :cnext to move to errors in :make
+" use zM and zR to fold and unfold all
 " Vim file settings {{{
 augroup filetype_vim
     " For .vim (vim files) use marker foldmethod, the three curly braces.
@@ -137,6 +140,7 @@ augroup END
     "set guifont=IBM\ Plex\ Mono:h12:cANSI:qDRAFT
     "set guifont=Roboto\ Mono:h12:cANSI:qDRAFT
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12:cANSI:qDRAFT,IBM\ Plex\ Mono:h12:cANSI:qDRAFT,Roboto\ Mono:h12:cANSI:qDRAFT
+    nnoremap <F8> :AirlineTheme base16_colors<CR>
  "}}}
 " Spaces and tabs {{{
     set tabstop=4
@@ -261,13 +265,6 @@ iabbrev gpath <C-r>=expand('%:p')<CR>
 iabbrev gdate <C-r>=strftime('%F')<CR>
 iabbrev gtime <C-r>=strftime('%H:%M:%S')<CR>
 iabbrev gdt <C-r>=strftime('%F %H:%M:%S')<CR>
-" }}}
-" Neovim-qt specific{{{
-"augroup neovim_qt
-"    autocmd VimEnter * :GuiFont! IBM\ Plex\ Mono:h12:cANSI:qDRAFT
-"    autocmd VimEnter * :GuiTabline 0
-"augroup END
- 
 " }}}
 "=====================================================================
 "echom ">^.^<"
