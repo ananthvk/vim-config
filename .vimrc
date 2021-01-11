@@ -235,6 +235,8 @@ augroup END
     " Store the backups.
     set updatetime=350
     " Set the update time for plugins
+    set noerrorbells vb t_vb=
+    au GUIEnter * set vb t_vb=
 " }}} 
 " Pane options {{{
     set splitbelow
