@@ -239,6 +239,7 @@ augroup END
 " Misc {{{
     noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
     " Remove the Windows ^M - when the encodings gets messed up
+    set shortmess=aI
     set encoding=utf-8
     " Set the encoding to unicode
     set ffs=unix,dos,mac
@@ -256,8 +257,10 @@ augroup END
 iabbrev adn and
 iabbrev teh the
 iabbrev tehn then
- 
-
+iabbrev gpath <C-r>=expand('%:p')<CR>
+iabbrev gdate <C-r>=strftime('%F')<CR>
+iabbrev gtime <C-r>=strftime('%H:%M:%S')<CR>
+iabbrev gdt <C-r>=strftime('%F %H:%M:%S')<CR>
 " }}}
 " Neovim-qt specific{{{
 "augroup neovim_qt
