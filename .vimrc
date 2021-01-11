@@ -2,7 +2,7 @@
 " 2020-12-20
 " General tips
 " The default location of this file is .vim/.vimrc
-" Last modified - 2021-01-11 16:43:09 
+" Last modified - 2021-01-11 16:43:09
 " -------------------------------------------------------------------
 " ===================================================================
 " Use leader + ev to open this vim config and then source it by leader + sv
@@ -44,7 +44,7 @@ augroup END
 
         nnoremap <leader><space> :noh<CR>
         " Press space twice in normal mode to remove search highlights.
-        
+
         nnoremap <leader>w :w!<cr>
         nnoremap <leader>q :q<cr>
         " Press leader + w to quickly save and.
@@ -67,18 +67,17 @@ augroup END
         " nnoremap <leader>ev :vsplit $MYVIMRC<CR>
         " Useful when you have to edit your vimrc quickly
         " Git remappings
-        nnoremap <leader>ga :Git add -A<CR> 
+        nnoremap <leader>ga :Git add -A<CR>
         nnoremap <leader>gc :Git commit -m "Changes"<CR>
         nnoremap <leader>gp :Git push -u origin main<CR>
         " Fold code remappings.
         nnoremap <leader>o za
-        " use leader + f and b to go front and back of link in vim helps. 
+        " use leader + f and b to go front and back of link in vim helps.
         nnoremap <leader>f <c-]>
         nnoremap <leader>b <c-o>
 
         nnoremap <leader>n :bn<CR>
         nnoremap <leader>p :bp<CR>
-
         nnoremap <leader>u <c-U>
         nnoremap <leader>d <c-D>
    " }}}
@@ -118,7 +117,7 @@ augroup END
     Plug 'preservim/nerdcommenter'
     Plug 'flazz/vim-colorschemes'
     call plug#end()
-    
+
 
 " }}}
 " Colors and colorscheme {{{
@@ -154,7 +153,7 @@ augroup END
     set shiftwidth=4
     " Use space instead of tab
     filetype plugin indent on
-    " Indent according to the file type 
+    " Indent according to the file type
     set autoindent
     " Enable auto indentation
     set shiftround
@@ -204,7 +203,7 @@ augroup END
     " Dont behave in compatible vim mode
     set laststatus=2
     " Always show the status bar.
-" }}} 
+" }}}
 " Create folders for file options {{{
     if !isdirectory($HOME. "/.vim/undodir")
         call mkdir($HOME. "/.vim/undodir", "p")
@@ -218,7 +217,7 @@ augroup END
         call mkdir($HOME. "/.vim/backup", "p")
     endif
 
-" }}} 
+" }}}
 " General file options, undo, directory, etc. {{{
     set undodir=~/.vim/undodir
     " Set the undo directory
@@ -237,14 +236,16 @@ augroup END
     " Set the update time for plugins
     set noerrorbells vb t_vb=
     au GUIEnter * set vb t_vb=
-" }}} 
+" }}}
 " Pane options {{{
     set splitbelow
     " Splits the pane below
 " }}}
 " Misc {{{
-    noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+    noremap <leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
     " Remove the Windows ^M - when the encodings gets messed up
+    nnoremap <leader>ms :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+    " Remove trailing whitespaces
     set shortmess=aI
     set encoding=utf-8
     " Set the encoding to unicode
