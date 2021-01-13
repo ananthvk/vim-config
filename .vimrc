@@ -56,7 +56,7 @@ augroup END
         nnoremap - :move +1<CR>
         nnoremap _ :move -2<CR>
 
-        nnoremap <c-u> viwU
+        nnoremap <leader>up viwU
         " Useful to set words to uppercase with ctrl + u like for constants
         " MAX_CONNECTIONS instead of holding shift and pressing.
 
@@ -80,6 +80,11 @@ augroup END
         nnoremap <leader>p :bp<CR>
         nnoremap <leader>u <c-U>
         nnoremap <leader>d <c-D>
+
+        " S will search/replace the word under the cursor
+        nnoremap S :%s/\<<C-r><C-w>\>//g<Left><Left><C-r><C-w>
+        nnoremap <leader>p "0p
+        nnoremap <leader>P "0P
    " }}}
     " Insert mode remappings {{{
     inoremap jk <Esc>
@@ -268,6 +273,36 @@ iabbrev gpath <C-r>=expand('%:p')<CR>
 iabbrev gdate <C-r>=strftime('%F')<CR>
 iabbrev gtime <C-r>=strftime('%H:%M:%S')<CR>
 iabbrev gdt <C-r>=strftime('%F %H:%M:%S')<CR>
+" }}}
+" Functions {{{
+vnoremap <leader>bc "ey:call CalcBC()<CR>
+function! CalcBC()
+  let has_equal = 0
+  " remove newlines and trailing spaces
+  let @e = substitute (@e, "\n", "", "g")
+  let @e = substitute (@e, '\s*$', "", "g")
+  " if we end with an equal, strip, and remember for output
+  if @e =~ "=$"
+    let @e = substitute (@e, '=$', "", "")
+    let has_equal = 1
+  endif
+  " sub common func names for bc equivalent
+  let @e = substitute (@e, '\csin\s*(', "s (", "")
+  let @e = substitute (@e, '\ccos\s*(', "c (", "")
+  let @e = substitute (@e, '\catan\s*(', "a (", "")
+  let @e = substitute (@e, "\cln\s*(", "l (", "")
+  " escape chars for shell
+  let @e = escape (@e, '*()')
+  " run bc, strip newline
+  let answer = substitute (system ("echo " . @e . " \| bc -l"), "\n", "", "")
+  " append answer or echo
+  if has_equal == 1
+    normal `>
+    exec "normal a" . answer
+  else
+    echo "answer = " . answer
+  endif
+endfunction
 " }}}
 "=====================================================================
 "echom ">^.^<"
