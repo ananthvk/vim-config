@@ -87,7 +87,7 @@ augroup END
         " text even if other deletes are performed.
         nnoremap <leader>p "0p
         nnoremap <leader>P "0P
-   " }}}
+" }}}
     " Insert mode remappings {{{
     inoremap jk <Esc>
     " Remap jk to Esc key so that it is easier to read
@@ -107,7 +107,7 @@ augroup END
     vnoremap <A-k> :m '<-2<CR>gv=gv
     " Allows to copy to the system clipboard
 
- " For easy navigation of links
+" For easy navigation of links
 " }}}
 " Plugins {{{
     " Use Vim-Plug to install the plugins
@@ -152,7 +152,7 @@ augroup END
     "set guifont=Roboto\ Mono:h12:cANSI:qDRAFT
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12:cANSI:qDRAFT,IBM\ Plex\ Mono:h12:cANSI:qDRAFT,Roboto\ Mono:h12:cANSI:qDRAFT
     nnoremap <F8> :AirlineTheme base16_colors<CR>
- "}}}
+"}}}
 " Spaces and tabs {{{
     set tabstop=4
     " number of visual spaces per a tab
@@ -284,53 +284,53 @@ iabbrev gdt <C-r>=strftime('%F %H:%M:%S')<CR>
 " Functions {{{
 vnoremap <leader>bc "ey:call CalcBC()<CR>
 function! CalcBC()
-  let has_equal = 0
-  " remove newlines and trailing spaces
-  let @e = substitute (@e, "\n", "", "g")
-  let @e = substitute (@e, '\s*$', "", "g")
-  " if we end with an equal, strip, and remember for output
-  if @e =~ "=$"
+let has_equal = 0
+" remove newlines and trailing spaces
+let @e = substitute (@e, "\n", "", "g")
+let @e = substitute (@e, '\s*$', "", "g")
+" if we end with an equal, strip, and remember for output
+if @e =~ "=$"
     let @e = substitute (@e, '=$', "", "")
     let has_equal = 1
-  endif
-  " sub common func names for bc equivalent
-  let @e = substitute (@e, '\csin\s*(', "s (", "")
-  let @e = substitute (@e, '\ccos\s*(', "c (", "")
-  let @e = substitute (@e, '\catan\s*(', "a (", "")
-  let @e = substitute (@e, "\cln\s*(", "l (", "")
-  " escape chars for shell
-  let @e = escape (@e, '*()')
-  " run bc, strip newline
-  let answer = substitute (system ("echo " . @e . " \| bc -l"), "\n", "", "")
-  " append answer or echo
-  if has_equal == 1
+endif
+" sub common func names for bc equivalent
+let @e = substitute (@e, '\csin\s*(', "s (", "")
+let @e = substitute (@e, '\ccos\s*(', "c (", "")
+let @e = substitute (@e, '\catan\s*(', "a (", "")
+let @e = substitute (@e, "\cln\s*(", "l (", "")
+" escape chars for shell
+let @e = escape (@e, '*()')
+" run bc, strip newline
+let answer = substitute (system ("echo " . @e . " \| bc -l"), "\n", "", "")
+" append answer or echo
+if has_equal == 1
     normal `>
     exec "normal a" . answer
-  else
+else
     echo "answer = " . answer
-  endif
+endif
 endfunction
 
 "function! Get_visual_selection()
-  " Why is this not a built-in Vim script function?!
-  "let [lnum1, col1] = getpos("'<")[1:2]
-  "let [lnum2, col2] = getpos("'>")[1:2]
-  "let lines = getline(lnum1, lnum2)
-  "let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)] 
-  "let lines[0] = lines[0][col1 - 1:] 
-  "let selection = join(lines,'\n')
-  "let change = input('Change the selection with: ')
-  "execute ":%s/".selection."/".change."/g"
+" Why is this not a built-in Vim script function?!
+"let [lnum1, col1] = getpos("'<")[1:2]
+"let [lnum2, col2] = getpos("'>")[1:2]
+"let lines = getline(lnum1, lnum2)
+"let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)] 
+"let lines[0] = lines[0][col1 - 1:] 
+"let selection = join(lines,'\n')
+"let change = input('Change the selection with: ')
+"execute ":%s/".selection."/".change."/g"
 "endfunction
 
 function! Get_visual_selection()
-  let [lnum1, col1] = getpos("'<")[1:2]
-  let [lnum2, col2] = getpos("'>")[1:2]
-  let lines = getline(lnum1, lnum2)
-  let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)] 
-  let lines[0] = lines[0][col1 - 1:] 
-  let line_move= join(lines,'\n')
-  return line_move
+let [lnum1, col1] = getpos("'<")[1:2]
+let [lnum2, col2] = getpos("'>")[1:2]
+let lines = getline(lnum1, lnum2)
+let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)] 
+let lines[0] = lines[0][col1 - 1:] 
+let line_move= join(lines,'\n')
+return line_move
 endfunction
 
 " }}}
