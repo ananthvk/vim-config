@@ -77,7 +77,8 @@ augroup END
         nnoremap <leader>b <c-o>
 
         nnoremap <leader>n :bn<CR>
-        nnoremap <leader>p :bp<CR>
+        nnoremap <leader>i :bp<CR>
+
         nnoremap <leader>u <c-U>
         nnoremap <leader>d <c-D>
 

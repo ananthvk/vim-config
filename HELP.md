@@ -34,5 +34,6 @@ It will be represented as `<leader>`
 * `jk` Equivalent to pressing.`<Esc>`
 * `Ctrl + d` Delete the current line.
 
-
+### Tips from various sources -- to remember
+* `"_d ` Deletes without adding it to the buffer so that the yanks do not get replaced.
 
