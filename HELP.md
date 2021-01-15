@@ -5,7 +5,7 @@
 ### Date:   2020-12-22
 
 ## Remappings
-**Note the alt remappings seem to work only on neovim**
+**Note the alt remappings seem to work only on neovim**/
 Leader key is the key which is defined as mapleader, default is `<space>`
 It will be represented as `<leader>`
 ### Normal Mode
