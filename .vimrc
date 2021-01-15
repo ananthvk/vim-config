@@ -83,6 +83,8 @@ augroup END
 
         " S will search/replace the word under the cursor
         nnoremap S :%s/\<<C-r><C-w>\>//g<Left><Left><C-r><C-w>
+        " Pastes the content in the 0 register, which contains the last yanked
+        " text even if other deletes are performed.
         nnoremap <leader>p "0p
         nnoremap <leader>P "0P
    " }}}
@@ -91,13 +93,18 @@ augroup END
     " Remap jk to Esc key so that it is easier to read
     inoremap <c-e> <c-o>A
     inoremap <c-d> <Esc>ddi
+    inoremap <c-space> <c-n>
     " useful to press ctrl + d to delete the current line in insert mode.
     " }}}
     " Terminal mode {{{
     tnoremap jk <C-\><C-n>
     " }}}
+    " Visual mode remappings{{{
+    " }}}
     set mouse=a
     set clipboard+=unnamedplus
+    vnoremap <A-j> :m '>+1<CR>gv=gv
+    vnoremap <A-k> :m '<-2<CR>gv=gv
     " Allows to copy to the system clipboard
 
  " For easy navigation of links
@@ -303,6 +310,29 @@ function! CalcBC()
     echo "answer = " . answer
   endif
 endfunction
+
+"function! Get_visual_selection()
+  " Why is this not a built-in Vim script function?!
+  "let [lnum1, col1] = getpos("'<")[1:2]
+  "let [lnum2, col2] = getpos("'>")[1:2]
+  "let lines = getline(lnum1, lnum2)
+  "let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)] 
+  "let lines[0] = lines[0][col1 - 1:] 
+  "let selection = join(lines,'\n')
+  "let change = input('Change the selection with: ')
+  "execute ":%s/".selection."/".change."/g"
+"endfunction
+
+function! Get_visual_selection()
+  let [lnum1, col1] = getpos("'<")[1:2]
+  let [lnum2, col2] = getpos("'>")[1:2]
+  let lines = getline(lnum1, lnum2)
+  let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)] 
+  let lines[0] = lines[0][col1 - 1:] 
+  let line_move= join(lines,'\n')
+  return line_move
+endfunction
+
 " }}}
 "=====================================================================
 "echom ">^.^<"
