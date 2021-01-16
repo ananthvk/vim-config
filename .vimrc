@@ -88,6 +88,12 @@ augroup END
         " text even if other deletes are performed.
         nnoremap <leader>p "0p
         nnoremap <leader>P "0P
+
+        nnoremap <leader>tn :tabnew<CR>
+        nnoremap <leader>to :tabonly<CR>
+        nnoremap <leader>tc :tabclose<CR>
+        nnoremap <leader>tm :tabmove
+        nnoremap <leader>t<leader>  :tabnext<CR>
 " }}}
     " Insert mode remappings {{{
     inoremap jk <Esc>
@@ -101,14 +107,13 @@ augroup END
     tnoremap jk <C-\><C-n>
     " }}}
     " Visual mode remappings{{{
+    vnoremap <A-j> :m '>+1<CR>gv=gv
+    vnoremap <A-k> :m '<-2<CR>gv=gv
+    " Moves the selected text up or down
     " }}}
     set mouse=a
     set clipboard+=unnamedplus
-    vnoremap <A-j> :m '>+1<CR>gv=gv
-    vnoremap <A-k> :m '<-2<CR>gv=gv
     " Allows to copy to the system clipboard
-
-" For easy navigation of links
 " }}}
 " Plugins {{{
     " Use Vim-Plug to install the plugins

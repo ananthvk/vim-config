@@ -36,4 +36,5 @@ It will be represented as `<leader>`
 
 ### Tips from various sources -- to remember
 * `"_d ` Deletes without adding it to the buffer so that the yanks do not get replaced.
+* `q:` Gets the buffer containing all commands to execute the command press Enter key. 
 
