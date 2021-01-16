@@ -37,4 +37,5 @@ It will be represented as `<leader>`
 ### Tips from various sources -- to remember
 * `"_d ` Deletes without adding it to the buffer so that the yanks do not get replaced.
 * `q:` Gets the buffer containing all commands to execute the command press Enter key. 
+* `g <C-g>` Gets the count of characters(bytes), words, lines in the file.
 

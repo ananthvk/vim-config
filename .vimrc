@@ -111,6 +111,11 @@ augroup END
     vnoremap <A-k> :m '<-2<CR>gv=gv
     " Moves the selected text up or down
     " }}}
+    " Command mode remappings{{{
+    " Use this command to write to file when you forget to open with sudo.
+    cmap w!! w !sudo tee > /dev/null %
+
+    " }}}
     set mouse=a
     set clipboard+=unnamedplus
     " Allows to copy to the system clipboard
@@ -142,6 +147,9 @@ augroup END
     " Set the colorscheme and background
     colorscheme gruvbox
     "colorscheme solarized8_dark
+    "A super spatial colorscheme
+    colorscheme base16-ateliercave
+
     set background=dark
     " Choose the dark theme
     syntax enable
@@ -280,12 +288,12 @@ augroup END
 " }}}
 " Abbreviations {{{
 iabbrev adn and
-iabbrev teh the
-iabbrev tehn then
 iabbrev gpath <C-r>=expand('%:p')<CR>
 iabbrev gdate <C-r>=strftime('%F')<CR>
 iabbrev gtime <C-r>=strftime('%H:%M:%S')<CR>
 iabbrev gdt <C-r>=strftime('%F %H:%M:%S')<CR>
+iabbrev teh the
+iabbrev tehn then
 " }}}
 " Functions {{{
 vnoremap <leader>bc "ey:call CalcBC()<CR>
