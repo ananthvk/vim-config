@@ -14,7 +14,7 @@ Install powerline fonts for the status bar from [here](https://github.com/powerl
 If you want to have nvim-qt in full screen mode add the ginit.vim to the appropriate folder.
 # Windows
 ### For nvim users
-Place the below lines in %APPDATA%\Local\nvim\init.vim
+Place the below lines in %LOCALAPPDATA%\Local\nvim\init.vim
 ```
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
