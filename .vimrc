@@ -2,7 +2,7 @@
 " 2020-12-20
 " General tips
 " The default location of this file is .vim/.vimrc
-" Last modified - 2021-01-11 16:43:09
+" Last modified - 2021-11-05 22:15:51
 " -------------------------------------------------------------------
 " ===================================================================
 " Use leader + ev to open this vim config and then source it by leader + sv
@@ -139,16 +139,25 @@ augroup END
     Plug 'tpope/vim-surround'
     Plug 'preservim/nerdcommenter'
     Plug 'flazz/vim-colorschemes'
+    Plug 'lervag/vimtex'
+    Plug 'sirver/ultisnips'
+    Plug 'honza/vim-snippets'
+    if has('nvim')
+        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+        Plug 'Shougo/deoplete.nvim'
+        Plug 'roxma/nvim-yarp'
+        Plug 'roxma/vim-hug-neovim-rpc'
+    endif
     call plug#end()
-
-
 " }}}
 " Colors and colorscheme {{{
     " Set the colorscheme and background
-    colorscheme gruvbox
+    "colorscheme gruvbox
     "colorscheme solarized8_dark
     "A super spatial colorscheme
-    colorscheme base16-ateliercave
+    "colorscheme base16-ateliercave
+    colorscheme solarized8_dark
 
     set background=dark
     " Choose the dark theme
@@ -166,6 +175,7 @@ augroup END
     "set guifont=Roboto\ Mono:h12:cANSI:qDRAFT
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12:cANSI:qDRAFT,IBM\ Plex\ Mono:h12:cANSI:qDRAFT,Roboto\ Mono:h12:cANSI:qDRAFT
     nnoremap <F8> :AirlineTheme base16_colors<CR>
+
 "}}}
 " Spaces and tabs {{{
     set tabstop=4
@@ -348,5 +358,37 @@ return line_move
 endfunction
 
 " }}}
+" Vimtex settings {{{
+let g:tex_flavor='latex'
+" Change this to some other reader
+" let g:vimtex_view_method=''
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+" }}}
+" Ulti Snips settings {{{
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+" Lists snippets
+let g:UltiSnipsListSnippets="<c-l>"
+
+" This is the directory to store user created snippets
+" using :UltiSnipsEdit
+let g:UltiSnipsSnippetsDir="~/.vim/snips"
+" The below line actually works, the above one is found in the internet.
+let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit="~/.vim/snips"
+" These are folders to search snippets for.
+let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
+
+"Enable auto start of deoplete
+let g:deoplete#enable_at_startup=1
+let g:python3_host_prog='C:\\Program Files\\Python39\\python.exe'
+" Enable completion for vimtex
+call deoplete#custom#var('omni', 'input_patterns', {
+      \ 'tex': g:vimtex#re#deoplete
+      \})
+" }}}
+"
 "=====================================================================
 "echom ">^.^<"
