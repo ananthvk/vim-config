@@ -3,6 +3,8 @@
 " General tips
 " The default location of this file is .vim/.vimrc
 " Homepage: https://github.com/shankarcodes/vim-config
+" License: MIT 
+"          See LICENSE for more information.
 " Last modified - 2021-11-05 22:15:51
 " -------------------------------------------------------------------
 " ===================================================================
@@ -17,6 +19,8 @@
 " Use :copen and :cnext to move to errors in :make
 " use zM and zR to fold and unfold all
 "
+scriptencoding utf-8
+set encoding=utf-8
 " Vim file settings {{{
 " Automatic installation of vim-plug for neovim
 " Taken from here https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
@@ -53,7 +57,7 @@ augroup END
         nnoremap <a-k> <c-w>-
         nnoremap <a-j> <c-w>+
 
-        nnoremap <leader><space> :noh<CR>
+        nnoremap <leader>s :noh<CR>
         " Press space twice in normal mode to remove search highlights.
 
         nnoremap <leader>w :w!<cr>
@@ -153,6 +157,9 @@ augroup END
     Plug 'lervag/vimtex'
     Plug 'sirver/ultisnips'
     Plug 'honza/vim-snippets'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'mhinz/vim-startify'
+"=====================================================================
 "    if has('nvim')
 "        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "    else
@@ -205,6 +212,11 @@ augroup END
     " Enable auto indentation
     set shiftround
     " When inserting spaces using 1>> use a multiple of shifwidth.
+    set copyindent
+    " Copy previous indentation.
+    nnoremap L :set list!<CR>
+    set showbreak=↪\
+    set listchars=tab:\ \ \\|,eol:↲,trail:•,extends:→,precedes:←
 " }}}
 " Search options {{{
     set hlsearch
@@ -371,6 +383,12 @@ let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 "      \ 'tex': g:vimtex#re#deoplete
 "      \})
 " }}}
-"
+" Other plugin settings{{{
+" ctrlp.vim settings
+    let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_cmd = 'CtrlP'
+" vim-startify settings
+    let g:startify_session_dir = '~/.vim/session'
+"}}}
 "=====================================================================
 "echom ">^.^<"
