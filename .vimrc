@@ -159,6 +159,7 @@ augroup END
     Plug 'honza/vim-snippets'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mhinz/vim-startify'
+    Plug 'easymotion/vim-easymotion'
 "=====================================================================
 "    if has('nvim')
 "        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -250,6 +251,7 @@ augroup END
     " Peformance options
     set lazyredraw
     " don't update screen during macro execution
+    set ttyfast
     set hidden
     " To hide the files in background instead of closing them
     set history=1000
@@ -390,5 +392,8 @@ let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 " vim-startify settings
     let g:startify_session_dir = '~/.vim/session'
 "}}}
+" Generates a lorem for testing
+let g:vimrc_location=expand("<sfile>:p:h")
+iabbrev lorem <c-o>:execute ':r ' . vimrc_location . '/templates/LOREM'<CR>
 "=====================================================================
 "echom ">^.^<"
