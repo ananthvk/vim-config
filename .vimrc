@@ -2,6 +2,7 @@
 " 2020-12-20
 " General tips
 " The default location of this file is .vim/.vimrc
+" Homepage: https://github.com/shankarcodes/vim-config
 " Last modified - 2021-11-05 22:15:51
 " -------------------------------------------------------------------
 " ===================================================================
@@ -15,7 +16,17 @@
 " ====================================================================
 " Use :copen and :cnext to move to errors in :make
 " use zM and zR to fold and unfold all
+"
 " Vim file settings {{{
+" Automatic installation of vim-plug for neovim
+" Taken from here https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  echom "Installing vim-plug"
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  echom "Finished installing vim-plug and plugins"
+endif
 augroup filetype_vim
     " For .vim (vim files) use marker foldmethod, the three curly braces.
     autocmd!
@@ -142,13 +153,13 @@ augroup END
     Plug 'lervag/vimtex'
     Plug 'sirver/ultisnips'
     Plug 'honza/vim-snippets'
-    if has('nvim')
-        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    else
-        Plug 'Shougo/deoplete.nvim'
-        Plug 'roxma/nvim-yarp'
-        Plug 'roxma/vim-hug-neovim-rpc'
-    endif
+"    if has('nvim')
+"        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"    else
+"        Plug 'Shougo/deoplete.nvim'
+"        Plug 'roxma/nvim-yarp'
+"        Plug 'roxma/vim-hug-neovim-rpc'
+"    endif
     call plug#end()
 " }}}
 " Colors and colorscheme {{{
@@ -306,35 +317,6 @@ iabbrev teh the
 iabbrev tehn then
 " }}}
 " Functions {{{
-vnoremap <leader>bc "ey:call CalcBC()<CR>
-function! CalcBC()
-let has_equal = 0
-" remove newlines and trailing spaces
-let @e = substitute (@e, "\n", "", "g")
-let @e = substitute (@e, '\s*$', "", "g")
-" if we end with an equal, strip, and remember for output
-if @e =~ "=$"
-    let @e = substitute (@e, '=$', "", "")
-    let has_equal = 1
-endif
-" sub common func names for bc equivalent
-let @e = substitute (@e, '\csin\s*(', "s (", "")
-let @e = substitute (@e, '\ccos\s*(', "c (", "")
-let @e = substitute (@e, '\catan\s*(', "a (", "")
-let @e = substitute (@e, "\cln\s*(", "l (", "")
-" escape chars for shell
-let @e = escape (@e, '*()')
-" run bc, strip newline
-let answer = substitute (system ("echo " . @e . " \| bc -l"), "\n", "", "")
-" append answer or echo
-if has_equal == 1
-    normal `>
-    exec "normal a" . answer
-else
-    echo "answer = " . answer
-endif
-endfunction
-
 "function! Get_visual_selection()
 " Why is this not a built-in Vim script function?!
 "let [lnum1, col1] = getpos("'<")[1:2]
@@ -382,12 +364,12 @@ let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit="~/.vim/snips"
 let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 
 "Enable auto start of deoplete
-let g:deoplete#enable_at_startup=1
-let g:python3_host_prog='C:\\Program Files\\Python39\\python.exe'
+" let g:deoplete#enable_at_startup=1
+" let g:python3_host_prog='C:\\Program Files\\Python39\\python.exe'
 " Enable completion for vimtex
-call deoplete#custom#var('omni', 'input_patterns', {
-      \ 'tex': g:vimtex#re#deoplete
-      \})
+"call deoplete#custom#var('omni', 'input_patterns', {
+"      \ 'tex': g:vimtex#re#deoplete
+"      \})
 " }}}
 "
 "=====================================================================
