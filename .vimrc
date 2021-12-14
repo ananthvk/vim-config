@@ -160,6 +160,12 @@ augroup END
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mhinz/vim-startify'
     Plug 'easymotion/vim-easymotion'
+    " Plug 'nathanaelkane/vim-indent-guides'
+    if has('nvim')
+        Plug 'lukas-reineke/indent-blankline.nvim'
+    endif
+    " Plugin to store previous yanks and deletes.
+    " Plug 'vim-scripts/YankRing.vim'
 "=====================================================================
 "    if has('nvim')
 "        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -264,6 +270,9 @@ augroup END
     " Dont behave in compatible vim mode
     set laststatus=2
     " Always show the status bar.
+    " cnoreabbrev help vert help
+    set splitright
+    cnoremap help vert help 
 " }}}
 " Create folders for file options {{{
     if !isdirectory($HOME. "/.vim/undodir")
@@ -331,7 +340,9 @@ iabbrev teh the
 iabbrev tehn then
 " }}}
 " Functions {{{
+
 "function! Get_visual_selection()
+" This function is taken from http://stackoverflow.com/a/6271254/794380
 " Why is this not a built-in Vim script function?!
 "let [lnum1, col1] = getpos("'<")[1:2]
 "let [lnum2, col2] = getpos("'>")[1:2]
@@ -387,10 +398,12 @@ let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 " }}}
 " Other plugin settings{{{
 " ctrlp.vim settings
-    let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_map = '<c-f>'
     let g:ctrlp_cmd = 'CtrlP'
 " vim-startify settings
     let g:startify_session_dir = '~/.vim/session'
+" indent-blankline.nvim
+    nnoremap H :IndentBlanklineToggle<CR>
 "}}}
 " Generates a lorem for testing
 let g:vimrc_location=expand("<sfile>:p:h")
