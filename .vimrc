@@ -141,6 +141,7 @@ augroup END
     call plug#begin('~/.vim/plugged')
     " Gruvbox a colorscheme plugin
     Plug 'morhetz/gruvbox'
+    Plug 'mbbill/undotree'
     Plug 'altercation/vim-colors-solarized'
     " Another colorscheme set it in the colors and colorscheme section
     Plug 'tpope/vim-fugitive'
@@ -156,6 +157,7 @@ augroup END
     Plug 'flazz/vim-colorschemes'
     Plug 'lervag/vimtex'
     Plug 'sirver/ultisnips'
+    " Plug 'powerman/vim-plugin-AnsiEsc'
     Plug 'honza/vim-snippets'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mhinz/vim-startify'
@@ -178,12 +180,14 @@ augroup END
 " }}}
 " Colors and colorscheme {{{
     " Set the colorscheme and background
-    "colorscheme gruvbox
+    " colorscheme gruvbox
     "colorscheme solarized8_dark
     "A super spatial colorscheme
-    "colorscheme base16-ateliercave
-    colorscheme solarized8_dark
-
+    " colorscheme base16-ateliercave
+    
+    " The best colorscheme, which I used for a while
+    " colorscheme solarized8_dark
+    colorscheme OceanicNext
     set background=dark
     " Choose the dark theme
     syntax enable
@@ -408,5 +412,6 @@ let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 " Generates a lorem for testing
 let g:vimrc_location=expand("<sfile>:p:h")
 iabbrev lorem <c-o>:execute ':r ' . vimrc_location . '/templates/LOREM'<CR>
+nnoremap <F5> :UndotreeToggle<CR>
 "=====================================================================
 "echom ">^.^<"
