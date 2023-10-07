@@ -187,7 +187,8 @@ augroup END
     
     " The best colorscheme, which I used for a while
     " colorscheme solarized8_dark
-    colorscheme OceanicNext
+    " colorscheme OceanicNext
+    colorscheme gruvbox
     set background=dark
     " Choose the dark theme
     syntax enable
